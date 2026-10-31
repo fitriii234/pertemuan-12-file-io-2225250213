@@ -1,0 +1,32 @@
+with open("data/catatan.txt", "w", encoding="utf-8") as file:
+    file.write("Algoritma dan Pemrograman\\n")
+    file.write("Pertemuan 12\\n")
+
+print("Data berhasil ditulis ke file!")
+with open("data/catatan.txt", "r", encoding="utf-8") as file:
+    for baris in file:
+        print(baris.strip())
+with open("data/catatan.txt", "a", encoding="utf-8") as file:
+    file.write("Latihan append berhasil.\\n")
+
+print("Data berhasil ditambahkan!")
+with open("data/nilai.txt", "r", encoding="utf-8") as file:
+    for baris in file:
+        baris = baris.strip()
+        if not baris:
+            continue
+        nim, teks_nilai = baris.split(",")
+        print(nim, float(teks_nilai))
+try:
+    with open("data/tidak_ada.txt", "r", encoding="utf-8") as file:
+        print(file.read())
+except FileNotFoundError:
+    print("File tidak ditemukan.")
+teks = input("Masukkan nilai: ")
+
+try:
+    nilai = float(teks)
+    print(f"Nilai = {nilai}")
+except ValueError:
+    print("Input harus berupa angka.")
+
